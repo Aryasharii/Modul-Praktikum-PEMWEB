@@ -1,4 +1,3 @@
-</head>
 <!DOCTYPE html>
 <html>
 
@@ -10,131 +9,130 @@
 
 <body>
     <header>    
-      <h1><span class="span">Arya</span> Ashari</h1>
-      <hr />
-      <ul>
-        <li>
-          <a href="">about</a>
-        </li>
-        <li>
-          <a href="">skill</a>
-        </li>
-        <li>
-          <a href="">project</a>
-        </li>
-        <li>
-          <a href="">contact</a>
-        </li>
-      </ul>
+        <h1><span class="span">Arya</span> Ashari</h1>
+        <hr />
+        <ul>
+            <li>
+                <a href="">about</a>
+            </li>
+            <li>
+                <a href="">skill</a>
+            </li>
+            <li>
+                <a href="">project</a>
+            </li>
+            <li>
+                <a href="">contact</a>
+            </li>
+        </ul>
     </header>
 
-    <main1><img
-      src="./Arya.png"
-      alt="gambar""
-      width="200px"
-      height="auto"    />
-      <br>
-      <caption>Arya Ashari</caption>
-      <h3>About Me </h3>
-      <p>Hello i'm Arya Ashari</p>
-        <p>i'm 20 years old, i'm from Donggala, i'm a student</p>
+    <main1>
+        <img
+            src="./Arya.png"
+            alt="gambar"
+            width="200px"
+            height="auto" />
+        <br>
+        <caption>Arya Ashari</caption>
+        <h3>About Me</h3>
+        <p>Hello, I'm Arya Ashari</p>
+        <p>I'm 20 years old, I'm from Donggala, and I'm a student.</p>
     </main1>
-    <br>
+
     <aside>
-      <form action="">
-        <h3>Rating Kebaikan Saya:</h3>
-        <label for="genderInput">Rating kebaikan</label>
-        <br />
-        <input type="radio" /> baik banget 
-        <input type="radio" /> baik sekali
-        <input type="radio" /> sangat baik 
-        <input type="radio" /> sangat sangat baik
-        <br />
-        <button>kirim</button>
-      </form>
-    </body>
+        <form action="">
+            <h3>Rating Kebaikan Saya:</h3>
+            <label for="genderInput">Rating kebaikan</label>
+            <br />
+            <input type="radio" /> baik banget 
+            <input type="radio" /> baik sekali
+            <input type="radio" /> sangat baik 
+            <input type="radio" /> sangat sangat baik
+            <br />
+            <button>kirim</button>
+        </form>
     </aside>
 
     <aside>
-      <form action=""></form>
-      <label for="emailInput">email</label>
-      <input type="email" placeholder="email" id="emailInput" />
-      <br />
-      <label for="passwordID">pesan untuk asprak</label>
-      <input
-        type="text"
-        placeholder="masukkan pesan anda"
-        id="passwordID"
-      />
-      <br />
-      <button>submit</button>
+        <form action="">
+            <label for="emailInput">email</label>
+            <input type="email" placeholder="email" id="emailInput" />
+            <br />
+            <label for="passwordID">pesan untuk asprak</label>
+            <input
+                type="text"
+                placeholder="masukkan pesan anda"
+                id="passwordID"
+            />
+            <br />
+            <button>submit</button>
+        </form>
     </aside>
     
     <main2>
         <h1>Pemesanan Makanan</h1>
-        <form action=""></form>
-        <label for="makanan">Makanan: </label>
-        <select name="" id="">
-            <option value=""></option>
-            <option value="12000">Bubur Ayam</option>
-            <option value="10000">Ayam Goreng</option>
-            <option value="13000">ketoprak</option>
-            <option value="15000">Nasi Goreng</option>
-        </select>
-        <label for="jumlah">Jumlah</label>
-        <input type="text">
-        <label for="jumlah">Voucher</label>
-        <input type="text">
-        <br>
-        <button>
-            input
-        </button>
+        <form>
+            <label for="makanan">Makanan: </label>
+            <select name="makanan" id="makanan">
+                <option value=""></option>
+                <option value="12000">Bubur Ayam</option>
+                <option value="10000">Ayam Goreng</option>
+                <option value="13000">Ketoprak</option>
+                <option value="15000">Nasi Goreng</option>
+            </select>
+            <label for="jumlah">Jumlah</label>
+            <input type="number" id="jumlah">
+            <label for="voucher">Voucher</label>
+            <input type="text" id="voucher">
+            <br>
+            <button type="button" onclick="calculateDiscount()">
+                input
+            </button>
+        </form>
     </main2>
 
     <main2>
         <h1>Struk belanja</h1>
         <p>Nama Pesanan: <span id="pesanan"></span></p>
-        <p>Jumlah Pesanan: <span id="jumlah"></span></p>
-        <p>Total Harga: <span id="total"></span></p>
-        <p>Total Diskon: <span id="voucher"></span></p>
-        <p>Total Harga setelah Diskon: <span id="akhir"></span></p>
+        <p>Jumlah Pesanan: <span id="jumlahPesanan"></span>
+        <p>Total Harga: <span id="totalAmount"></span>
+        <p>Total Diskon: <span id="voucherAmount"></span>
+        <p>Total Harga setelah Diskon: <span id="finalTotal"></span>
     </main2>
-
+    
     <footer>
         <p>© 2023 Arya Ashari</p>
     </footer>
+
+    <script>
+        const foodSelect = document.querySelector('#makanan');
+        const quantityInput = document.querySelector('#jumlah');
+        const voucherInput = document.querySelector('#voucher');
+        const pesananSpan = document.getElementById('pesanan');
+        const jumlahSpan = document.getElementById('jumlahPesanan');
+        const voucherAmountSpan = document.getElementById('voucherAmount');
+        const totalAmountSpan = document.getElementById('totalAmount');
+        const finalTotalSpan = document.getElementById('finalTotal');
+
+        function calculateDiscount() {
+            const foodPrice = parseInt(foodSelect.value);
+            const quantity = parseInt(quantityInput.value);
+            const inputText = voucherInput.value;
+            let discount = 0;
+            if (inputText === 'LEONASPRAKGANTENG') {
+                discount = 20;
+            }
+            
+            const totalAmount = foodPrice * quantity;
+            const discountAmount = (discount / 100) * totalAmount;
+            const finalTotal = totalAmount - discountAmount;
+            pesananSpan.textContent = foodSelect.options[foodSelect.selectedIndex].text;
+            jumlahSpan.textContent = quantity;
+            voucherAmountSpan.textContent = discountAmount;
+            totalAmountSpan.textContent = totalAmount;
+            finalTotalSpan.textContent = finalTotal;
+        }
+    </script>
 </body>
-
-<script>
-  const foodSelect = document.querySelector('select');
-  const quantityInput = document.querySelector('input[type="text"]');
-  const voucherInput = document.querySelectorAll('input[type="text"]')[1];
-  const pesananSpan = document.getElementById('pesanan');
-  const jumlahSpan = document.getElementById('jumlah');
-  const voucherSpan = document.getElementById('voucher');
-  const totalSpan = document.getElementById('total');
-  const totalAkhir =document.getElementById('akhir');
-
-  function calculateDiscount() {
-    const foodPrice = parseInt(foodSelect.value);
-    const quantity = parseInt(quantityInput.value);
-    const inputText = voucherInput.value;
-    let discount = 0;
-    if (inputText === 'LEONASPRAKGANTENG') {
-        discount = 20;
-      }
-      
-    const totalAmount = foodPrice * quantity;
-    const discountAmount = (discount / 100) * totalAmount;
-    const finalTotal = totalAmount - discountAmount;
-    pesananSpan.textContent = foodSelect.options[foodSelect.selectedIndex].text;
-    jumlahSpan.textContent = quantity;
-    voucherSpan.textContent = discountAmount;
-    totalSpan.textContent = totalAmount;
-    totalAkhir.textContent = finalTotal;
-  }
-  const button = document.querySelector('button');
-  button.addEventListener('click', calculateDiscount);
-</script>
-
 </html>
