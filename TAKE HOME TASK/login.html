@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js"></script>
+  </head>
+  <body>
+    <nav>
+      <h1>Website Penjualan Ikan</h1>
+    </nav>
+    <form action="#" id="loginForm">
+      <label for="username">Email (email):</label>
+      <input type="text" name="username" id="username" />
+      <label for="password">Password (min. 8 karakter):</label>
+      <input type="password" name="password" id="password" />
+      <input type="submit" value="Login" />
+    </form>
+  </body>
+
+  <script>
+    document
+      .getElementById('loginForm')
+      .addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // mendapatkan value
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+        // validasi email dan pass
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(username)) {
+          alert(
+            'Alamat email tidak valid. Silahkan masukan alamat email yang valid!!!',
+          );
+          return;
+        }
+
+        if (password.length < 8) {
+          alert('Password setidaknya berisi 8 karakter!!!');
+          return;
+        }
+
+        // Redirect ke main
+        window.location.href = 'index.html';
+      });
+  </script>
+</html>
