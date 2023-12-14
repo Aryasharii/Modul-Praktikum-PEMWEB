@@ -36,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
 
     $loggedInUser = loginUser($username, $password);
     if ($loggedInUser !== false) {
+        setcookie('username', $username, time() + (86400 * 30), "/"); // Cookie berlaku selama 30 hari
         header("Location: index.html");
         exit;
     } else {
