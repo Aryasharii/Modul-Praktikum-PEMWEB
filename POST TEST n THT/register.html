@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Registrasi</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav>
+      <h1>Website Perpustakaan UPer</h1>
+    </nav>
+    <form action="register.php" method="post">
+      <label for="nama">Nama:</label>
+      <input type="text" name="nama" id="nama" required />
+      <label for="nim">NIM:</label>
+      <input type="text" name="nim" id="nim" required />
+      <label for="email">Email (email):</label>
+      <input type="text" name="email" id="email" required />
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username" required />
+      <label for="password">Password (min. 8 karakter):</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        minlength="8"
+        required
+      />
+      <input type="submit" name="register" value="Daftar" />
+    </form>
+    <p>Sudah punya akun? <a href="login.html">Login di sini</a></p>
+  </body>
+</html>
