@@ -1,0 +1,101 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4e87f1;
+  padding: 10px;
+}
+
+nav h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: #b2915c;
+}
+
+form {
+  display: flex;
+  align-items: center;
+}
+
+input[type='text'] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin: 10px;
+}
+
+input[type='submit'] {
+  padding: 10px;
+  background-color: #4e87f1;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+input[type='submit']:hover {
+  background-color: #007bff;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px; 
+  margin-bottom: 20px;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.image-container img {
+  width: 90%;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.text-container,
+.rating-container,
+.kontak-container {
+  padding: 10px;
+}
+
+.kategori-item {
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.3s ease;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.kategori-item:hover {
+  transform: translateY(-5px);
+}
