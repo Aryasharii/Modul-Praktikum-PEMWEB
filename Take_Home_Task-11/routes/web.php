@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +17,7 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('login.index', ['title' => 'Login']);
 })->name('login');
 
 Route::get('/index', function () {
@@ -25,23 +28,15 @@ Route::get('/kategori', function () {
     return view('kategori');
 });
 
-Route::post('/login', function (\Illuminate\Http\Request $request) {
-    $validUsername = "arya@gmail.com";
-    $validPassword = "password123"; 
+Route::get('/register', function () {
+    return view('register');
+});
 
-    $username = $request->input('username');
-    $password = $request->input('password');
+Route::get('/login', [LoginController::class, 'index'])->name('login.index');
+Route::post('/login', [LoginController::class, 'submit'])->name('login.submit');
 
-    // Validasi login
-    if ($username === $validUsername && $password === $validPassword) {
-        return redirect()->route('index');
-    } else {
-        return redirect()->route('login')->with('error', 'Invalid credentials');
-    }
-})->name('login.submit');
+Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
+Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
-Route::get('/index', function () {
-    return view('index');
-})->name('index');
 
 
